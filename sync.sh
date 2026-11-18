@@ -13,10 +13,7 @@ git clone https://github.com/Another-Chris/.pi.git ${pi_dir}
   cp "${pi_dir}/${f}" "${HOME}/.pi/agent/${rel}"
 done
 
-if [ ! -d ./.pi ]; then
-  mkdir -p ./.pi
-fi
-mv ${pi_dir}/agent/kaggle-interface.md ./.pi/APPEND_SYSTEM.md
+mv ${pi_dir}/agent/kaggle-interface.md ${HOME}/.pi/agent/APPEND_SYSTEM.md
 
 rm -rf ${pi_dir}
 
