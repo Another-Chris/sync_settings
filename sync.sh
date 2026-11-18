@@ -15,6 +15,15 @@ done
 
 mv ${pi_dir}/agent/kaggle-interface.md ${HOME}/.pi/agent/APPEND_SYSTEM.md
 
+(cat ${HOME}/.pi/agent/settings.json 2>/dev/null || echo '{}') | \
+jq '. + {
+  defaultProvider: "poe",
+  defaultModel: "claude-sonnet-5.5",
+  defaultThinkingLevel: "high"
+}' > ${HOME}/.pi/agent/settings.json.tmp && \
+mv ${HOME}/.pi/agent/settings.json.tmp ~/.pi/agent/settings.json
+
+
 rm -rf ${pi_dir}
 
 ### skills ###
