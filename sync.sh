@@ -7,7 +7,7 @@ if [ -d ${pi_dir} ]; then
 fi
 git clone https://github.com/Another-Chris/.pi.git ${pi_dir}
 
-(cd ${pi_dir} && git ls-files -z --cached --others --exclude-standard -- agent) | while IFS= read -r -d '' f; do
+(cd "${pi_dir}" && git ls-files --cached --others --exclude-standard -- agent) | while IFS= read -r f; do
   rel="${f#agent/}"
   mkdir -p "${HOME}/.pi/agent/$(dirname "${rel}")"
   cp "${pi_dir}/${f}" "${HOME}/.pi/agent/${rel}"
