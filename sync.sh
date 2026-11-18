@@ -21,7 +21,7 @@ jq '. + {
   defaultModel: "claude-sonnet-5.5",
   defaultThinkingLevel: "high"
 }' > ${HOME}/.pi/agent/settings.json.tmp && \
-mv ${HOME}/.pi/agent/settings.json.tmp ~/.pi/agent/settings.json
+mv ${HOME}/.pi/agent/settings.json.tmp ${HOME}/.pi/agent/settings.json
 
 
 rm -rf ${pi_dir}
