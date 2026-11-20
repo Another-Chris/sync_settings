@@ -1,5 +1,6 @@
 set -e
 
+
 ### pi ###
 pi_dir="./pi-config"
 if [ -d ${pi_dir} ]; then
@@ -57,3 +58,8 @@ if [ ! -d "${HOME}/.config/vim" ]; then
 fi
 cp ${HOME}/.config/vim/vimrc ~/.vimrc
 cp -r ${HOME}/.config/vim/ ~/.vim
+
+
+
+source ~/.bashrc
+alias pi-kaggle='pi --model github-copilot/gemini-4-hydrogen --thinking high --append-system-prompt ${HOME}/.pi/agent/extensions/kaggle-harness/APPEND_SYSTEM.md'
