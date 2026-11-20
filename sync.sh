@@ -14,16 +14,7 @@ git clone https://github.com/Another-Chris/.pi.git ${pi_dir}
   cp "${pi_dir}/${f}" "${HOME}/.pi/agent/${rel}"
 done
 
-mv ${pi_dir}/agent/kaggle-interface.md ${HOME}/.pi/agent/APPEND_SYSTEM.md
-
-(cat ${HOME}/.pi/agent/settings.json 2>/dev/null || echo '{}') | \
-jq '. + {
-  defaultProvider: "poe",
-  defaultModel: "claude-sonnet-5.5",
-  defaultThinkingLevel: "high"
-}' > ${HOME}/.pi/agent/settings.json.tmp && \
-mv ${HOME}/.pi/agent/settings.json.tmp ${HOME}/.pi/agent/settings.json
-
+cp -r ${pi_dir}/agent/extensions-optional/kaggle-harness ${HOME}/.pi/agent/extensions/
 
 rm -rf ${pi_dir}
 
@@ -62,4 +53,4 @@ cp -r ${HOME}/.config/vim/ ~/.vim
 
 
 source ~/.bashrc
-alias pi-kaggle='pi --model github-copilot/gemini-4-hydrogen --thinking high --append-system-prompt ${HOME}/.pi/agent/extensions/kaggle-harness/APPEND_SYSTEM.md'
+alias pi-kaggle='pi --model github-copilot/mai-code-2 --thinking high --append-system-prompt ${HOME}/.pi/agent/extensions/kaggle-harness/APPEND_SYSTEM.md'
