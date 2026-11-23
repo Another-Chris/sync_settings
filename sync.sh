@@ -53,4 +53,4 @@ cp -r ${HOME}/.config/vim/ ~/.vim
 
 
 source ~/.bashrc
-alias pi-kaggle='pi --model github-copilot/mai-code-2 --thinking high --append-system-prompt ${HOME}/.pi/agent/extensions/kaggle-harness/APPEND_SYSTEM.md'
+alias pi-kaggle='pi --model github-copilot/gpt-6-luna --thinking high --append-system-prompt ${HOME}/.pi/agent/extensions/kaggle-harness/APPEND_SYSTEM.md'
