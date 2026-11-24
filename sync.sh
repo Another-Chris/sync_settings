@@ -51,18 +51,25 @@ cp -r ${HOME}/.config/vim/ ~/.vim
 
 source ~/.bashrc
 
+_k_run() {
+  local mode_file="$1"
+  shift
+  local prompt
+  prompt="$(cat ~/.pi/agent/prompts/kaggle/shared.md "$mode_file")"
+  pi --append-system-prompt "$prompt" "$@"
+}
+
 k-scaffold() {
-  pi --append-system-prompt ~/.pi/agent/prompts/kaggle/scaffold.md "$@"
+  _k_run ~/.pi/agent/prompts/kaggle/scaffold.md "$@"
 }
 
 k-research() {
-  pi --append-system-prompt ~/.pi/agent/prompts/kaggle/research.md "$@"
+  _k_run ~/.pi/agent/prompts/kaggle/research.md "$@"
 }
 
 k-exp() {
-  pi --append-system-prompt ~/.pi/agent/prompts/kaggle/experiment.md \
-     --exclude-tools memory_type_upsert,memory_deprecate,memory_consolidate \
-     "$@"
+  _k_run ~/.pi/agent/prompts/kaggle/experiment.md \
+    --exclude-tools memory_type_upsert,memory_deprecate,memory_consolidate \
+    "$@"
 }
-
 
