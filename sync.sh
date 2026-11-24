@@ -14,8 +14,6 @@ git clone https://github.com/Another-Chris/.pi.git ${pi_dir}
   cp "${pi_dir}/${f}" "${HOME}/.pi/agent/${rel}"
 done
 
-cp -r ${pi_dir}/agent/extensions-optional/kaggle-harness ${HOME}/.pi/agent/extensions/
-
 rm -rf ${pi_dir}
 
 ### skills ###
@@ -51,6 +49,20 @@ cp ${HOME}/.config/vim/vimrc ~/.vimrc
 cp -r ${HOME}/.config/vim/ ~/.vim
 
 
-
 source ~/.bashrc
-alias pi-kaggle='pi --model github-copilot/gpt-6-luna --thinking high --append-system-prompt ${HOME}/.pi/agent/extensions/kaggle-harness/APPEND_SYSTEM.md'
+
+k-scaffold() {
+  pi --append-system-prompt ~/.pi/agent/prompts/kaggle/scaffold.md "$@"
+}
+
+k-research() {
+  pi --append-system-prompt ~/.pi/agent/prompts/kaggle/research.md "$@"
+}
+
+k-exp() {
+  pi --append-system-prompt ~/.pi/agent/prompts/kaggle/experiment.md \
+     --exclude-tools memory_type_upsert,memory_deprecate,memory_consolidate \
+     "$@"
+}
+
+
