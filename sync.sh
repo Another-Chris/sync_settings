@@ -47,8 +47,3 @@ if [ ! -d "${HOME}/.config/vim" ]; then
 fi
 cp ${HOME}/.config/vim/vimrc ~/.vimrc
 cp -r ${HOME}/.config/vim/ ~/.vim
-
-
-source ~/.bashrc
-
-

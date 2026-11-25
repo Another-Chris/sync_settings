@@ -1,3 +1,5 @@
+source ~/.bashrc
+
 _k_run() {
   local mode_file="$1"
   shift
