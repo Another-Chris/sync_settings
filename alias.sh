@@ -5,7 +5,7 @@ _k_run() {
   shift
   local prompt
   prompt="$(cat ~/.pi/agent/prompts/kaggle/shared.md "$mode_file")"
-  pi --thinking high --append-system-prompt "$prompt" "$@"
+  pi --thinking high --agents-file "$prompt" "$@"
 }
 
 k-scaffold() {
