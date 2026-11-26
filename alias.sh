@@ -4,7 +4,7 @@ _k_run() {
   local mode="$1"
   shift
   local dir="$HOME/.pi/agent/prompts/kaggle"
-  pi --thinking high --agents-files "${dir}/shared.md,${dir}/${mode}.md" "$@"
+  pi --model open-router/meta/muse-ember --thinking high --agents-files "${dir}/shared.md,${dir}/${mode}.md" "$@"
 }
 
 k-scaffold() {
