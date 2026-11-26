@@ -1,23 +1,22 @@
 source ~/.bashrc
 
 _k_run() {
-  local mode_file="$1"
+  local mode="$1"
   shift
-  local prompt
-  pi --thinking high "$@"
+  local dir="$HOME/.pi/agent/prompts/kaggle"
+  pi --thinking high --agents-files "${dir}/shared.md,${dir}/${mode}.md" "$@"
 }
 
 k-scaffold() {
-  _k_run --agents-files ~/.pi/agent/prompts/kaggle/shared.md,~/.pi/agent/prompts/kaggle/scaffold.md "$@"
+  _k_run scaffold "$@"
 }
 
 k-research() {
-  _k_run --agents-files ~/.pi/agent/prompts/kaggle/shared.md,~/.pi/agent/prompts/kaggle/research.md "$@"
+  _k_run research "$@"
 }
 
 k-exp() {
-  _k_run --agents-files ~/.pi/agent/prompts/kaggle/shared.md,~/.pi/agent/prompts/kaggle/experiment.md \
+  _k_run experiment \
     --exclude-tools memory_type_upsert,memory_deprecate,memory_consolidate \
     "$@"
 }
-
